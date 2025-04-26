@@ -1,3 +1,5 @@
+import re
+
 class User:
     def __init__(self, name, email):
         self.name = name
@@ -18,8 +20,9 @@ class User:
     def remove_account(self, account):
         return "Account"
 
-    def is_valid_email(self,email):
-        return None
+    def is_valid_email(self, email):
+        pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        return re.match(pattern, email) is not None
 
 
     def __str__(self):
