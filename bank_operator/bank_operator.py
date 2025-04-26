@@ -8,11 +8,18 @@ def create_user():
     name = input("Enter name: ")
     email = input("Enter email: ")
     user = User(name, email)
+    
+    # Validate the email address
     if not user.is_valid_email(email):
         print("Invalid email address!")
         return
+    
+    # Append the new user to the global users list
     users.append(user)
+    
+    # Display a success message once the user is created
     print(f"User {name} created.\n")
+
 
 def list_users():
     if not users:
